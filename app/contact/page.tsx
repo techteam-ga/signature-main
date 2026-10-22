@@ -26,7 +26,7 @@ export default function ContactPage() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -39,10 +39,7 @@ export default function ContactPage() {
     try {
       const payload = new FormData();
       payload.append("access_key", "1451740e-965b-41de-b42d-eed139082b34");
-      payload.append(
-        "subject",
-        "New Contact Inquiry - Signature Group"
-      );
+      payload.append("subject", "New Contact Inquiry - Signature Group");
 
       payload.append("name", formData.name);
       payload.append("email", formData.email);
@@ -130,7 +127,7 @@ export default function ContactPage() {
           className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer z-10 group"
         >
           <ChevronDown className="text-[#E0B973] w-10 h-10 group-hover:text-[#ffd67e] transition-colors duration-300" />
-          <div className="w-8 h-[1px] bg-gradient-to-r from-transparent via-[#E0B973]/70 to-transparent mt-2 mx-auto opacity-70 group-hover:opacity-100 transition-opacity" />
+          <div className="w-8 h-px bg-linear-to-r from-transparent via-[#E0B973]/70 to-transparent mt-2 mx-auto opacity-70 group-hover:opacity-100 transition-opacity" />
         </motion.div>
       </section>
 
@@ -139,7 +136,7 @@ export default function ContactPage() {
         id="contact-form"
         className="py-24 px-6 lg:px-20 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#121212] to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#121212] to-[#0A0A0A]" />
 
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* 📝 LEFT SIDE FORM */}
@@ -266,8 +263,8 @@ export default function ContactPage() {
                   Dhanbad
                 </h3>
                 <p className="text-sm">
-                  Shri Ram Complex, Ground Floor, Hirak Road, Nawadih,
-                  Dhanbad, Jharkhand - 828130
+                  Shri Ram Complex, Ground Floor, Hirak Road, Nawadih, Dhanbad,
+                  Jharkhand - 828130
                 </p>
               </div>
 

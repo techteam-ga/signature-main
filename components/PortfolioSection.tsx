@@ -35,8 +35,8 @@ export default function PortfolioSection() {
   return (
     <section className="relative w-full py-24 bg-[#0E0E0E] text-white overflow-hidden">
       {/* 🌅 Fade Transitions to Blend with Black Sections */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-32 bg-linear-to-b from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent pointer-events-none" />
 
       {/* ✨ Subtle Gold Radial Glow Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(224,185,115,0.05)_0%,transparent_70%)] opacity-40 pointer-events-none" />
@@ -76,7 +76,7 @@ export default function PortfolioSection() {
             initial={{ width: 0 }}
             whileInView={{ width: "260px" }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="h-[2px] bg-gradient-to-r from-[#E0B973] via-[#E0B973] to-transparent mt-3 mb-4"
+            className="h-0.5 bg-linear-to-r from-[#E0B973] via-[#E0B973] to-transparent mt-3 mb-4"
           />
 
           {/* Sub-text paragraph (Beautiful, subtle, left aligned) */}
@@ -115,8 +115,7 @@ export default function PortfolioSection() {
                 />
 
                 {/* Overlay Gradient */}
-               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-70 transition-all duration-500"></div>
-
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-70 transition-all duration-500"></div>
 
                 {/* Text Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">

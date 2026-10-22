@@ -17,7 +17,7 @@ export default function EnquireNowButton() {
   >("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -65,7 +65,6 @@ export default function EnquireNowButton() {
            FLOATING SIDEBAR BUTTON (NEW DESIGN)
       ====================================================== */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col shadow-xl rounded-l-xl overflow-hidden">
-
         {/* Top Black Tab */}
         <button
           onClick={() => setIsOpen(true)}
@@ -137,7 +136,8 @@ export default function EnquireNowButton() {
                 </div>
 
                 <p className="text-gray-400 mb-6 text-sm leading-relaxed">
-                  Fill out the form below and our team will get back to you shortly.
+                  Fill out the form below and our team will get back to you
+                  shortly.
                 </p>
 
                 {/* Form */}

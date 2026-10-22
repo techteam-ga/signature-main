@@ -55,7 +55,7 @@ export default function ClientsSection() {
             initial={{ width: 0 }}
             whileInView={{ width: "260px" }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="h-[2px] bg-gradient-to-r from-[#E0B973] via-[#E0B973] to-transparent mt-3 mb-6"
+            className="h-0.5 bg-linear-to-r from-[#E0B973] via-[#E0B973] to-transparent mt-3 mb-6"
           />
         </motion.div>
 

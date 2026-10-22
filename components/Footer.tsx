@@ -143,7 +143,7 @@ export default function Footer() {
             <div className="flex items-start space-x-3">
               <Mail className="w-4 h-4 text-[#E0B973] mt-0.5" />
               <Link
-              href="mailto:hello@signaturegroup.com"
+                href="mailto:hello@signaturegroup.com"
                 className="hover:text-[#E0B973] transition"
               >
                 hello@signaturegroup.com
@@ -240,15 +240,14 @@ export default function Footer() {
                     {page}
                   </Link>
                 </li>
-              )
+              ),
             )}
           </ul>
         </motion.div>
       </div>
 
       <div className="border-t border-[#2a2a2a]/70 mt-16 pt-6 text-center text-gray-400 text-xs relative z-10">
-        © 2017 Signature Group. All Rights
-        Reserved.
+        © 2017 Signature Group. All Rights Reserved.
       </div>
     </footer>
   );

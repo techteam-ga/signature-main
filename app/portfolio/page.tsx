@@ -17,12 +17,54 @@ type Project = {
 };
 
 const projects: Project[] = [
-  { id: "project-1", title: "The Signature Residence", location: "Kolkata, India", desc: "A refined residential concept balancing natural light, warm materials, and contemporary proportions.", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85" },
-  { id: "project-2", title: "Urban House", location: "Kolkata, India", desc: "A modern home shaped around privacy, calm transitions, and an enduring material palette.", image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85" },
-  { id: "project-3", title: "The Courtyard Villa", location: "West Bengal, India", desc: "A connected indoor-outdoor residence designed around a central landscaped court.", image: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=85" },
-  { id: "project-4", title: "Signature Workplace", location: "Kolkata, India", desc: "A considered workplace environment where clarity, comfort, and crafted details work together.", image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85" },
-  { id: "project-5", title: "The Garden House", location: "India", desc: "A quiet architectural retreat with generous openings and a close relationship to its garden.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85" },
-  { id: "project-6", title: "Contemporary Living", location: "India", desc: "A contemporary development defined by clean lines, elegant finishes, and thoughtful planning.", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85" },
+  {
+    id: "project-1",
+    title: "The Signature Residence",
+    location: "Kolkata, India",
+    desc: "A refined residential concept balancing natural light, warm materials, and contemporary proportions.",
+    image:
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85",
+  },
+  {
+    id: "project-2",
+    title: "Urban House",
+    location: "Kolkata, India",
+    desc: "A modern home shaped around privacy, calm transitions, and an enduring material palette.",
+    image:
+      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85",
+  },
+  {
+    id: "project-3",
+    title: "The Courtyard Villa",
+    location: "West Bengal, India",
+    desc: "A connected indoor-outdoor residence designed around a central landscaped court.",
+    image:
+      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=85",
+  },
+  {
+    id: "project-4",
+    title: "Signature Workplace",
+    location: "Kolkata, India",
+    desc: "A considered workplace environment where clarity, comfort, and crafted details work together.",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85",
+  },
+  {
+    id: "project-5",
+    title: "The Garden House",
+    location: "India",
+    desc: "A quiet architectural retreat with generous openings and a close relationship to its garden.",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
+  },
+  {
+    id: "project-6",
+    title: "Contemporary Living",
+    location: "India",
+    desc: "A contemporary development defined by clean lines, elegant finishes, and thoughtful planning.",
+    image:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85",
+  },
 ];
 
 export default function PortfolioPage() {
@@ -95,8 +137,7 @@ export default function PortfolioPage() {
           transition={{ duration: 0.8 }}
           className="text-gray-300 text-[17px] leading-relaxed tracking-wide"
         >
-          At{" "}
-          <span className="text-[#E0B973] font-medium">Signature Group</span>
+          At <span className="text-[#E0B973] font-medium">Signature Group</span>
           , we transform visionary concepts into exceptional built environments.
           With a strong commitment to innovation, precision, and excellence, we
           deliver high-quality real estate, construction, and interior solutions

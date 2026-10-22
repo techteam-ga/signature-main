@@ -40,23 +40,36 @@ const reveal: Variants = {
 export default function SignatureHomepage() {
   return (
     <main className="signature-home">
-      <section className="home-intro" id="about">
+      <section className="home-intro" id="about" data-nav-section="/about">
         <div className="home-intro__top">
           <p className="eyebrow">A signature way of living</p>
           <span className="section-number">02 — 05</span>
         </div>
         <div className="home-intro__grid">
-          <motion.h2 variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <motion.h2
+            variants={reveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             We don’t just
             <br />
             <em>build spaces.</em>
           </motion.h2>
-          <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <p className="lead">We shape places that feel considered, connected and truly yours.</p>
+          <motion.div
+            variants={reveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <p className="lead">
+              We shape places that feel considered, connected and truly yours.
+            </p>
             <p>
-              For more than a decade, Signature Developers has brought together thoughtful design,
-              reliable construction and a deep understanding of how people live. Every address we
-              create is built to feel better today and hold its value tomorrow.
+              For more than a decade, Signature Developers has brought together
+              thoughtful design, reliable construction and a deep understanding
+              of how people live. Every address we create is built to feel
+              better today and hold its value tomorrow.
             </p>
             <Link className="text-link" href="/about">
               Our story <ArrowUpRight size={15} />
@@ -73,7 +86,11 @@ export default function SignatureHomepage() {
         </div>
       </section>
 
-      <section className="projects-showcase" id="projects">
+      <section
+        className="projects-showcase"
+        id="projects"
+        data-nav-section="/portfolio"
+      >
         <div className="section-heading">
           <div>
             <p className="eyebrow">Places with purpose</p>
@@ -87,9 +104,18 @@ export default function SignatureHomepage() {
         </div>
         <div className="projects-track">
           {projects.map((project) => (
-            <Link href="/portfolio" key={project.title} className="project-card">
+            <Link
+              href="/portfolio"
+              key={project.title}
+              className="project-card"
+            >
               <div className="project-card__image">
-                <Image src={project.image} alt={project.title} fill sizes="(max-width: 800px) 85vw, 32vw" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 800px) 85vw, 32vw"
+                />
                 <span>{project.number}</span>
               </div>
               <div className="project-card__meta">
@@ -107,7 +133,7 @@ export default function SignatureHomepage() {
         </div>
       </section>
 
-      <section className="beliefs">
+      <section className="beliefs" data-nav-section="/about">
         <div className="beliefs__heading">
           <p className="eyebrow">What guides us</p>
           <h2>
@@ -118,9 +144,21 @@ export default function SignatureHomepage() {
         </div>
         <div className="beliefs__list">
           {[
-            ["01", "People first", "Every decision starts with the people who will call our spaces home."],
-            ["02", "Designed to endure", "Timeless material, honest craft and details that get better with time."],
-            ["03", "Better tomorrow", "Sustainable thinking is part of our process, not an afterthought."],
+            [
+              "01",
+              "People first",
+              "Every decision starts with the people who will call our spaces home.",
+            ],
+            [
+              "02",
+              "Designed to endure",
+              "Timeless material, honest craft and details that get better with time.",
+            ],
+            [
+              "03",
+              "Better tomorrow",
+              "Sustainable thinking is part of our process, not an afterthought.",
+            ],
           ].map(([number, title, copy]) => (
             <div className="belief" key={number}>
               <span>{number}</span>
@@ -134,7 +172,7 @@ export default function SignatureHomepage() {
         </div>
       </section>
 
-      <section className="numbers">
+      <section className="numbers" data-nav-section="/portfolio">
         <div className="numbers__image">
           <Image
             src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=85"
@@ -152,11 +190,15 @@ export default function SignatureHomepage() {
           </h2>
           <div className="metrics">
             <div>
-              <strong>25<span>+</span></strong>
+              <strong>
+                25<span>+</span>
+              </strong>
               <p>Years of experience</p>
             </div>
             <div>
-              <strong>180<span>+</span></strong>
+              <strong>
+                180<span>+</span>
+              </strong>
               <p>Projects delivered</p>
             </div>
             <div>
@@ -170,7 +212,11 @@ export default function SignatureHomepage() {
         </div>
       </section>
 
-      <section className="enquiry-band" aria-labelledby="enquiry-title">
+      <section
+        className="enquiry-band"
+        data-nav-section="/contact"
+        aria-labelledby="enquiry-title"
+      >
         <div className="enquiry-band__content">
           <p className="eyebrow">Your next chapter starts here</p>
           <h2 id="enquiry-title">
@@ -179,7 +225,8 @@ export default function SignatureHomepage() {
             <em>in mind?</em>
           </h2>
           <p className="enquiry-band__copy">
-            Tell us what you’re looking for. We’ll help you find a space that feels like yours.
+            Tell us what you’re looking for. We’ll help you find a space that
+            feels like yours.
           </p>
         </div>
         <div className="enquiry-band__action">
@@ -191,7 +238,9 @@ export default function SignatureHomepage() {
             </span>
           </Link>
         </div>
-        <span className="enquiry-band__index" aria-hidden="true">SIGNATURE DEVELOPERS&nbsp; / &nbsp;05</span>
+        <span className="enquiry-band__index" aria-hidden="true">
+          SIGNATURE DEVELOPERS&nbsp; / &nbsp;05
+        </span>
       </section>
     </main>
   );

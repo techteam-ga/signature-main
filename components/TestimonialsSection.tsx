@@ -11,19 +11,22 @@ export default function TestimonialsSection() {
       name: "Amit Verma",
       title: "Property Investor — Dubai",
       text: "Working with Signature Group was a seamless experience. Their attention to detail and commitment to quality surpassed all expectations.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
     },
     {
       name: "Sarah Khan",
       title: "Homeowner — Kolkata",
       text: "They delivered our dream home exactly how we envisioned it. Every element, from design to execution, was handled with excellence.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
     },
     {
       name: "Mohammed Al Fahim",
       title: "Business Owner — Abu Dhabi",
       text: "Professionalism, innovation, and luxury — that’s Signature Group in a nutshell. Their team ensures each project stands out architecturally.",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
     },
   ];
 

@@ -23,7 +23,7 @@ export default function AwardsSection() {
           className="text-[#E0B973] text-3xl md:text-4xl font-semibold uppercase tracking-wider mb-3"
         >
           Our Achievements
-          <div className="w-24 h-[1.5px] bg-gradient-to-r from-transparent via-[#E0B973] to-transparent mx-auto mb-6 mt-3 opacity-70" />
+          <div className="w-24 h-[1.5px] bg-linear-to-r from-transparent via-[#E0B973] to-transparent mx-auto mb-6 mt-3 opacity-70" />
         </motion.h2>
 
         <motion.p

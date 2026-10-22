@@ -28,7 +28,7 @@ export default function AboutPage() {
       {/* 🌆 HERO SECTION */}
       <section className="inner-page-hero relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center">
         <Image
-            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=85"
+          src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=85"
           alt="About Signature Group"
           fill
           className="object-cover opacity-80"
@@ -107,10 +107,10 @@ export default function AboutPage() {
               </p>
 
               <p>
-                With expanding outreach across India and the Middle East, Signature Group
-                has shaped luxury architectural experiences that merge digital
-                precision with real-world excellence. Our projects reflect
-                imagination elevated through technology and dedication.
+                With expanding outreach across India and the Middle East,
+                Signature Group has shaped luxury architectural experiences that
+                merge digital precision with real-world excellence. Our projects
+                reflect imagination elevated through technology and dedication.
               </p>
 
               <p>

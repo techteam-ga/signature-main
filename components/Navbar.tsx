@@ -82,7 +82,7 @@ export default function Navbar({
             </div>
 
             {/* CENTER Logo */}
-            <div className="absolute left-1/2 -translate-x-1/2 flex justify-center flex-shrink-0">
+            <div className="absolute left-1/2 -translate-x-1/2 flex justify-center shrink-0">
               <Link href="/">
                 <Image
                   src="/signature-group-logo.svg"
@@ -173,7 +173,7 @@ export default function Navbar({
               </div>
 
               {/* Divider */}
-              <div className="mb-10 w-full h-[1px] bg-gradient-to-r from-transparent via-[#E0B973] to-transparent opacity-50" />
+              <div className="mb-10 w-full h-px bg-linear-to-r from-transparent via-[#E0B973] to-transparent opacity-50" />
 
               {/* NAVLINKS */}
               <div className="space-y-6">
@@ -204,7 +204,7 @@ export default function Navbar({
               </div>
 
               {/* Divider 2 */}
-              <div className="my-8 w-full h-[1px] bg-gradient-to-r from-transparent via-[#E0B973] to-transparent opacity-40" />
+              <div className="my-8 w-full h-px bg-linear-to-r from-transparent via-[#E0B973] to-transparent opacity-40" />
 
               {/* FEATURES */}
               <motion.div

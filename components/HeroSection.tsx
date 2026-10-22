@@ -65,7 +65,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="relative z-10 flex flex-col items-center text-center px-6
-                   translate-y-[40%]"  // ⬆️ moved lower than before (was 16%)
+                   translate-y-[40%]" // ⬆️ moved lower than before (was 16%)
       >
         {/* ✨ Subheading */}
         <motion.p
