@@ -247,7 +247,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#2a2a2a]/70 mt-16 pt-6 text-center text-gray-400 text-xs relative z-10">
-        © {new Date().getFullYear()} Signature Group. All Rights
+        © 2017 Signature Group. All Rights
         Reserved.
       </div>
     </footer>

@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronDown, Download } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { ChevronDown } from "lucide-react";
+import Navbar from "@/components/SignatureNavbarV2";
+import Footer from "@/components/SignatureFooter";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export default function AboutPage() {
@@ -26,16 +26,15 @@ export default function AboutPage() {
       <Navbar />
 
       {/* 🌆 HERO SECTION */}
-      <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center">
+      <section className="inner-page-hero relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center">
         <Image
-          src="/images/hero-bg.jpg"
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=85"
           alt="About Signature Group"
           fill
           className="object-cover opacity-80"
           priority
         />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute bottom-0 left-0 w-full h-48 bg-linear-to-t from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent pointer-events-none" />
+        <div className="inner-page-hero__shade absolute inset-0" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -43,7 +42,7 @@ export default function AboutPage() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           className="relative z-10 px-6"
         >
-          <h1 className="font-playfair text-4xl md:text-5xl font-semibold text-[#E0B973] mb-6 uppercase tracking-wide">
+          <h1 className="inner-page-hero__title font-playfair text-4xl md:text-5xl font-semibold mb-6 uppercase tracking-wide">
             About Signature Group
           </h1>
 
@@ -51,7 +50,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-gray-300 max-w-2xl mx-auto text-base md:text-md leading-relaxed font-light text-justify"
+            className="inner-page-hero__copy max-w-2xl mx-auto text-base md:text-md leading-relaxed font-light"
           >
             Redefining luxury through timeless architecture, innovative design,
             and master craftsmanship — our legacy lies in every detail we
@@ -71,7 +70,7 @@ export default function AboutPage() {
       </section>
 
       {/* 🆕 NEW CONTENT SECTION (PREMIUM LAYOUT) */}
-      <section className="mt-7 mb-8 px-0 bg-[#0A0A0A]">
+      <section className="about-story mt-7 mb-8 px-0">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
           {/* LEFT IMAGE */}
           <motion.div
@@ -81,7 +80,7 @@ export default function AboutPage() {
             className="relative w-full h-[520px] lg:h-[700px]"
           >
             <Image
-              src="/images/about-bg.jpg"
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85"
               alt="Company Visual"
               fill
               className="object-cover"
@@ -95,11 +94,11 @@ export default function AboutPage() {
             transition={{ duration: 1 }}
             className="px-8 lg:px-16 py-12 flex flex-col justify-center"
           >
-            <h2 className="text-[#E0B973] font-playfair text-3xl md:text-4xl font-semibold uppercase tracking-wide mb-8">
+            <h2 className="about-story__title font-playfair text-3xl md:text-4xl font-semibold uppercase tracking-wide mb-8">
               Welcome to Signature Group
             </h2>
 
-            <div className="space-y-6 text-gray-300 text-base md:text-lg leading-relaxed font-light text-justify">
+            <div className="about-story__copy space-y-6 text-base md:text-lg leading-relaxed font-light text-justify">
               <p>
                 In 2015, we envisioned a world shaped by creativity, precision,
                 endurance and craftsmanship. Today, this stands as the
@@ -122,29 +121,13 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* CTA BUTTON UPDATED */}
-            <motion.a
-              href="/files/Signature-Group-Profile.pdf"
-              download
-              whileHover={{
-                scale: 1.06,
-                boxShadow: "0 0 20px rgba(224,185,115,0.45)",
-              }}
-              transition={{ duration: 0.3 }}
-              className="mx-auto mt-10 px-10 py-3 bg-black border border-[#E0B973] text-[#E0B973] rounded-full uppercase text-sm tracking-widest shadow-xl hover:bg-[#E0B973] hover:text-black transition-all flex items-center gap-3"
-            >
-              <Download className="w-5 h-5" />
-              Download Company Profile
-            </motion.a>
-
-            {/* LOGO */}
-            <div className="flex justify-center mt-10">
+            <div className="about-story__logo mt-10">
               <Image
-                src="/signature-group-logo.svg"
-                width={220}
-                height={100}
-                alt="Company Logo"
-                className="opacity-80"
+                src="/signature-logo.png"
+                width={250}
+                height={125}
+                alt="Signature Developers"
+                className="object-contain"
               />
             </div>
           </motion.div>
@@ -152,25 +135,21 @@ export default function AboutPage() {
       </section>
 
       {/* 📊 METRICS - HOVER INTERACTION */}
-      <section className="mt-5 mb-10 bg-[#0A0A0A]">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <section className="about-metrics mt-5 mb-10">
+        <div className="about-metrics__grid max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8">
           {metrics.map((metric, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: i * 0.2 }}
-              whileHover={{
-                scale: 1.07,
-                boxShadow: "0 0 25px rgba(224,185,115,0.45)",
-                borderColor: "#E0B973",
-              }}
-              className="p-8 bg-[#0C0C0C] rounded-2xl border border-[#E0B973]/40 text-center transition-all duration-300"
+              whileHover={{ y: -5 }}
+              className="about-metric p-8 text-center transition-all duration-300"
             >
-              <h3 className="font-playfair text-[#E0B973] text-5xl md:text-6xl font-semibold">
+              <h3 className="about-metric__number font-playfair text-5xl md:text-6xl font-semibold">
                 {metric.number}
               </h3>
-              <p className="text-gray-400 text-xs md:text-sm uppercase tracking-[0.25em] mt-4">
+              <p className="about-metric__label text-xs md:text-sm uppercase tracking-[0.25em] mt-4">
                 {metric.label}
               </p>
             </motion.div>

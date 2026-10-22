@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/SignatureNavbarV2";
+import Footer from "@/components/SignatureFooter";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
@@ -79,10 +79,10 @@ export default function ContactPage() {
       <Navbar />
 
       {/* 🌆 HERO SECTION */}
-      <section className="relative h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+      <section className="inner-page-hero relative h-screen flex flex-col items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/contact-bg.jpg"
+            src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=2200&q=85"
             alt="Contact Signature Group"
             fill
             priority
@@ -90,15 +90,14 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="absolute bottom-0 left-0 w-full h-48 bg-linear-to-t from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent pointer-events-none"></div>
+        <div className="inner-page-hero__shade absolute inset-0"></div>
 
         <div className="relative z-10 px-6">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 1 }}
-            className="text-[#E0B973] italic text-lg md:text-xl mb-4 tracking-wide"
+            className="inner-page-hero__eyebrow italic text-lg md:text-xl mb-4 tracking-wide"
           >
             Let’s Build Something Extraordinary
           </motion.p>
@@ -107,7 +106,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="font-playfair text-4xl md:text-6xl font-semibold uppercase leading-tight mb-6"
+            className="inner-page-hero__title font-playfair text-4xl md:text-6xl font-semibold uppercase leading-tight mb-6"
           >
             Get in Touch <br />
           </motion.h1>
@@ -258,17 +257,17 @@ export default function ContactPage() {
                   Kolkata
                 </h3>
                 <p className="text-sm">
-                  # 356, Ground Floor, Jodhpur Park, Kolkata - 700068
+                  RDB Boulevard, Salt Lake Sector V, Kolkata - 700091
                 </p>
               </div>
 
               <div>
                 <h3 className="font-playfair text-lg text-[#E0B973] mb-1 font-medium">
-                  Patna
+                  Dhanbad
                 </h3>
                 <p className="text-sm">
-                  401, 4th Floor, Sai Tower, New Dak Bungalow Road, Patna -
-                  800001
+                  Shri Ram Complex, Ground Floor, Hirak Road, Nawadih,
+                  Dhanbad, Jharkhand - 828130
                 </p>
               </div>
 
@@ -296,7 +295,7 @@ export default function ContactPage() {
             {/* Google Map */}
             <div className="mt-12 rounded-2xl overflow-hidden border border-[#2a2a2a] hover:border-[#E0B973]/70 transition-all duration-500 shadow-[0_0_20px_rgba(224,185,115,0.05)]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.264274332761!2d88.42988837405366!3d22.56917118516521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02772f68b5b4a3%3A0x8a5ef28b9c2a8b65!2sRDB%20Boulevard%2C%20Salt%20Lake%20Sector%20V%2C%20Kolkata%2C%20West%20Bengal%20700091!5e0!3m2!1sen!2sin!4v1731336500000!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=RDB%20Boulevard%2C%20Salt%20Lake%20Sector%20V%2C%20Kolkata%20700091&output=embed"
                 width="100%"
                 height="320"
                 style={{ border: 0 }}
