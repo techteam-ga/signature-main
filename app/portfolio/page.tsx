@@ -6,7 +6,7 @@ import { ChevronDown, Download } from "lucide-react";
 
 import Footer from "@/components/SignatureFooter";
 import ScrollToTop from "@/components/ScrollToTop";
-import Navbar from "@/components/SignatureNavbarV2";
+import Navbar from "@/components/SignatureNavbarCenter";
 
 type Project = {
   id: string;

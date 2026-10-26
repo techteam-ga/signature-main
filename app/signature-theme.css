@@ -1,9 +1,10 @@
 :root {
-  --navy: #0a3a9b;
-  --ink: #17233d;
-  --gold: #d4a241;
-  --ivory: #fbfaf6;
-  --line: #e6e0d3;
+  --navy: #10284a;
+  --charcoal: #323a46;
+  --ink: #323a46;
+  --gold: #c99b45;
+  --ivory: #f7f5f0;
+  --line: #e4dfd5;
 }
 html {
   scroll-behavior: smooth;
@@ -398,12 +399,25 @@ body {
 [class*="text-gray-300"] {
   color: #5f6878 !important;
 }
+[class*="text-gray-200"],
+[class*="text-black"] {
+  color: var(--charcoal) !important;
+}
 [class*="text-gray-400"] {
   color: #778092 !important;
 }
+[class*="text-gray-500"] {
+  color: #6c7480 !important;
+}
+[class~="bg-black"] {
+  background-color: var(--navy) !important;
+}
+[class*="bg-[#E0B973]"] {
+  background-color: var(--gold) !important;
+}
 [class*="text-[#E0B973]"],
 [class*="text-[#D4A556]"] {
-  color: var(--navy) !important;
+  color: var(--gold) !important;
 }
 [class*="border-[#2a2a2a]"],
 [class*="border-[#1f1f1f]"] {
@@ -476,7 +490,7 @@ body {
   padding: clamp(78px, 10vw, 150px) clamp(22px, 8vw, 130px);
 }
 .home-intro {
-  background: #fbfaf6;
+  background: var(--ivory);
 }
 .home-intro__top,
 .section-heading {
@@ -550,7 +564,7 @@ body {
   filter: saturate(0.8);
 }
 .projects-showcase {
-  background: #fff;
+  background: var(--ivory);
 }
 .section-heading {
   border: 0;
@@ -794,13 +808,13 @@ body {
   }
 }
 .signature-nav {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(247, 245, 240, 0.98);
   backdrop-filter: blur(16px);
   border-bottom-color: var(--line);
   box-shadow: 0 8px 30px #17233d0a;
 }
 .signature-nav.is-scrolled {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(247, 245, 240, 0.98);
 }
 .signature-hero__rail {
   left: auto;
@@ -861,6 +875,13 @@ body {
   gap: clamp(18px, 2.5vw, 36px);
   margin-right: clamp(18px, 3vw, 42px);
 }
+.signature-nav__links,
+.signature-nav__cta {
+  display: none !important;
+}
+.signature-nav__menu {
+  display: flex;
+}
 .signature-nav__links a,
 .signature-nav__cta {
   font-size: 11px;
@@ -869,7 +890,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #168b4d !important;
+  color: var(--navy) !important;
+}
+.signature-menu__whatsapp svg {
+  color: #25d366 !important;
+  fill: #25d366 !important;
+  flex: 0 0 auto;
 }
 .signature-footer__silhouette {
   height: 100%;
@@ -891,17 +917,48 @@ body {
   width: 52px;
   height: 58px;
   border-radius: 16px 0 0 16px;
-  background: #25d366;
+  background: var(--navy);
   color: #fff;
-  box-shadow: 0 10px 28px #117a3b45;
+  box-shadow: 0 10px 28px rgba(16, 40, 74, 0.25);
   transform: translateY(-50%);
   transition:
     transform 0.25s,
     background 0.25s;
 }
 .whatsapp-float:hover {
-  background: #1ebe59;
+  background: var(--gold);
+  color: var(--navy);
   transform: translate(-4px, -50%);
+}
+.scroll-to-top-button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: rgba(16, 40, 74, 0.94);
+  color: var(--gold);
+  box-shadow: 0 8px 22px rgba(16, 40, 74, 0.2);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.scroll-to-top-button:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+  box-shadow: 0 10px 26px rgba(16, 40, 74, 0.28);
+}
+.scroll-to-top-button svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  color: currentColor;
 }
 @media (max-width: 520px) {
   .whatsapp-float {
@@ -943,7 +1000,7 @@ body {
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.65);
 }
 .about-story {
-  background: #fbfaf6 !important;
+  background: var(--ivory) !important;
   color: var(--ink);
   padding: 44px 24px 68px;
 }
@@ -1689,4 +1746,387 @@ body {
 .signature-nav__menu:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 5px;
+}
+
+/* Split image navigation panel used when the main menu is open. */
+.signature-menu--immersive {
+  padding: 0;
+  background: var(--charcoal);
+}
+.signature-menu--immersive .signature-menu__image {
+  object-position: center right;
+  filter: grayscale(1) saturate(0.25) brightness(0.84);
+  opacity: 1;
+}
+.signature-menu--immersive .signature-menu__wash {
+  background: linear-gradient(
+    90deg,
+    rgba(24, 31, 43, 0.1) 0%,
+    rgba(24, 31, 43, 0.3) 100%
+  );
+}
+.signature-menu__panel {
+  position: absolute;
+  z-index: 2;
+  isolation: isolate;
+  inset: 0 auto 0 0;
+  width: clamp(360px, 29vw, 465px);
+  padding: clamp(28px, 4.5vw, 66px) clamp(32px, 5.8vw, 90px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(135deg, transparent 0 12%, rgba(255, 255, 255, 0.42) 12.2% 13%, transparent 13.2% 100%),
+    linear-gradient(42deg, transparent 0 48%, rgba(211, 171, 88, 0.12) 48.2% 49%, transparent 49.2% 100%),
+    var(--ivory);
+  border-right: 1px solid rgba(201, 155, 63, 0.75);
+  box-shadow: 8px 0 28px rgba(18, 30, 51, 0.12);
+}
+.signature-menu__panel-image {
+  position: absolute;
+  z-index: 0;
+  inset: auto 0 0;
+  height: 28%;
+  background:
+    linear-gradient(0deg, rgba(251, 245, 226, 0.12), rgba(251, 245, 226, 0.95)),
+    url("/images/bg1.jpg") center 70% / cover;
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(to bottom, transparent, #000 45%);
+}
+.signature-menu--immersive .signature-menu__top,
+.signature-menu__body {
+  position: relative;
+  z-index: 1;
+}
+.signature-menu--immersive .signature-menu__top {
+  flex: 0 0 auto;
+}
+.signature-menu--immersive .signature-menu__top img {
+  width: clamp(135px, 12vw, 180px);
+}
+.signature-menu__body {
+  width: 100%;
+  margin-top: clamp(48px, 8vh, 90px);
+  padding-left: 17px;
+  border-left: 1px solid #bd9145;
+}
+.signature-menu--immersive .eyebrow {
+  color: #192b4e !important;
+  margin-bottom: 14px;
+}
+.signature-menu--immersive nav a {
+  grid-template-columns: 30px 1fr 20px;
+  gap: 10px;
+  padding: 12px 2px;
+  color: #102c62;
+  font-size: clamp(21px, 2vw, 29px);
+}
+.signature-menu--immersive nav a svg,
+.signature-menu--immersive nav a:hover svg,
+.signature-menu--immersive nav a.is-active svg {
+  opacity: 1;
+  transform: none;
+  color: var(--gold);
+}
+.signature-menu--immersive nav a.is-active {
+  color: #a77b23;
+  border-color: rgba(212, 162, 65, 0.75);
+}
+.signature-menu--immersive .signature-menu__bottom {
+  margin-top: auto;
+  padding-top: 17px;
+  border-top: 0;
+  color: #24324b;
+  font-size: 10px;
+  letter-spacing: 0;
+}
+.signature-menu--immersive .signature-menu__bottom a {
+  color: #17233d;
+}
+.signature-menu--immersive .signature-menu__close {
+  position: absolute;
+  z-index: 3;
+  top: clamp(24px, 5vh, 58px);
+  right: clamp(26px, 5vw, 74px);
+  color: #d7b25f;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+.signature-menu__caption {
+  z-index: 2;
+  right: clamp(26px, 5vw, 74px);
+  bottom: 28px;
+  color: #fff;
+  font-size: 9px;
+}
+@media (max-width: 700px) {
+  .signature-menu--immersive .signature-menu__image {
+    inset: 0 0 0 auto !important;
+    width: 53% !important;
+    height: 100% !important;
+    object-position: 58% center;
+    filter: grayscale(0.65) saturate(0.35) brightness(0.72);
+    opacity: 0.94;
+  }
+  .signature-menu--immersive .signature-menu__wash {
+    background: linear-gradient(90deg, rgba(24, 31, 43, 0.08), rgba(24, 31, 43, 0.32));
+  }
+  .signature-menu__panel {
+    width: 47%;
+    min-width: 0;
+    padding: 22px 13px 18px;
+  }
+  .signature-menu--immersive .signature-menu__top img {
+    width: clamp(105px, 31vw, 145px);
+  }
+  .signature-menu__body {
+    margin-top: clamp(42px, 8vh, 70px);
+    padding-left: 8px;
+  }
+  .signature-menu--immersive .eyebrow {
+    font-size: 8px !important;
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
+  }
+  .signature-menu--immersive nav a {
+    grid-template-columns: 17px minmax(0, 1fr) 13px;
+    gap: 4px;
+    padding: 11px 0;
+    font-size: clamp(14px, 4.1vw, 19px);
+  }
+  .signature-menu--immersive nav a span {
+    font-size: 8px;
+  }
+  .signature-menu--immersive nav a svg {
+    width: 14px;
+  }
+  .signature-menu--immersive .signature-menu__bottom {
+    flex-direction: column;
+    gap: 9px;
+    padding-top: 14px;
+    font-size: 8px;
+  }
+  .signature-menu--immersive .signature-menu__close {
+    top: 19px;
+    right: 15px;
+    gap: 5px;
+  }
+  .signature-menu--immersive .signature-menu__close span {
+    font-size: 8px;
+  }
+  .signature-menu--immersive .signature-menu__close svg {
+    width: 18px;
+  }
+  .signature-menu__caption {
+    right: 14px;
+    bottom: 15px;
+    font-size: 6px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 700px) {
+  .signature-hero__image {
+    object-position: 57% center;
+    filter: saturate(0.55) contrast(1.04);
+  }
+  .inner-page-hero {
+    min-height: 620px;
+    height: 100svh;
+  }
+  .inner-page-hero > img {
+    object-position: center center;
+  }
+  .about-story > div > div:first-child {
+    height: clamp(300px, 92vw, 420px);
+  }
+}
+
+/* Transparent centered-logo header shown on every page. */
+.signature-nav--centered {
+  height: 82px;
+  padding: 10px clamp(16px, 4vw, 58px);
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.signature-nav--centered.is-scrolled {
+  height: 72px;
+  background: rgba(247, 245, 240, 0.88);
+  border-bottom-color: rgba(228, 223, 213, 0.8);
+  box-shadow: 0 8px 28px rgba(16, 40, 74, 0.08);
+  backdrop-filter: blur(16px);
+}
+.signature-nav__logo--centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(112px, 11vw, 150px);
+  padding: 3px 10px;
+  justify-content: center;
+  border: 1px solid rgba(201, 155, 69, 0.34);
+  border-radius: 3px;
+  background: rgba(247, 245, 240, 0.88);
+  box-shadow: 0 3px 14px rgba(16, 40, 74, 0.12);
+  transform: translate(-50%, -50%);
+}
+.signature-nav__menu--centered {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  justify-content: center;
+  border: 1px solid rgba(201, 155, 69, 0.45);
+  border-radius: 50%;
+  background: rgba(247, 245, 240, 0.9);
+  box-shadow: 0 3px 14px rgba(16, 40, 74, 0.12);
+}
+.signature-nav--centered .signature-nav__cta--centered {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 15px;
+  border: 1px solid rgba(201, 155, 69, 0.72);
+  border-radius: 2px;
+  background: rgba(247, 245, 240, 0.9);
+  color: var(--navy);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  box-shadow: 0 3px 14px rgba(16, 40, 74, 0.1);
+}
+.signature-nav--centered .signature-nav__cta--centered:hover {
+  background: var(--navy);
+  color: var(--ivory);
+}
+@media (max-width: 700px) {
+  .signature-nav--centered {
+    height: 72px;
+    padding: 8px 14px;
+  }
+  .signature-nav--centered.is-scrolled {
+    height: 66px;
+  }
+  .signature-nav__logo--centered {
+    width: clamp(100px, 27vw, 125px);
+    padding: 3px 7px;
+  }
+  .signature-nav__menu--centered {
+    width: 40px;
+    height: 40px;
+  }
+  .signature-nav--centered .signature-nav__cta--centered {
+    gap: 5px;
+    padding: 9px 9px;
+    font-size: 8px;
+    letter-spacing: 0.06em;
+  }
+  .signature-nav--centered .signature-nav__cta--centered svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+@media (min-width: 371px) and (max-width: 420px) {
+  .signature-nav--centered .signature-nav__cta--centered {
+    gap: 4px;
+    padding: 8px 7px;
+    font-size: 7.5px;
+    letter-spacing: 0.02em;
+  }
+  .signature-nav--centered .signature-nav__cta--centered svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media (max-width: 370px) {
+  .signature-nav__logo--centered {
+    width: 90px;
+    padding: 3px 5px;
+  }
+  .signature-nav__menu--centered {
+    width: 36px;
+    height: 36px;
+  }
+  .signature-nav--centered .signature-nav__cta--centered {
+    width: 96px;
+    min-width: 0;
+    gap: 0;
+    padding: 6px 4px;
+    font-size: 7px;
+    line-height: 1.15;
+    text-align: center;
+    white-space: normal;
+  }
+  .signature-nav--centered .signature-nav__cta--centered svg {
+    display: none;
+  }
+}
+
+/* Remove the logo tile and let the centered header sit cleanly over imagery. */
+.signature-nav--centered {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.signature-nav--centered.is-scrolled {
+  background: rgba(247, 245, 240, 0.84);
+  border-bottom-color: rgba(228, 223, 213, 0.72);
+  box-shadow: 0 8px 28px rgba(16, 40, 74, 0.08);
+  backdrop-filter: blur(18px);
+}
+.signature-nav__logo--centered {
+  width: clamp(160px, 13vw, 190px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 1px 2px rgba(247, 245, 240, 0.96))
+    drop-shadow(0 0 8px rgba(247, 245, 240, 0.62));
+}
+.signature-nav__menu--centered {
+  color: var(--ivory);
+  border: 1px solid rgba(201, 155, 69, 0.82);
+  background: rgba(16, 40, 74, 0.28);
+  box-shadow: 0 2px 10px rgba(16, 40, 74, 0.16);
+  filter: drop-shadow(0 1px 3px rgba(16, 40, 74, 0.55));
+}
+.signature-nav--centered .signature-nav__cta--centered {
+  border-color: rgba(201, 155, 69, 0.94);
+  background: rgba(16, 40, 74, 0.3);
+  color: var(--ivory);
+  text-shadow: 0 1px 4px rgba(16, 40, 74, 0.8);
+  box-shadow: 0 2px 10px rgba(16, 40, 74, 0.14);
+}
+.signature-nav--centered.is-scrolled .signature-nav__menu--centered {
+  color: var(--navy);
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+}
+.signature-nav--centered.is-scrolled .signature-nav__cta--centered {
+  background: transparent;
+  color: var(--navy);
+  text-shadow: none;
+  box-shadow: none;
+}
+@media (max-width: 700px) {
+  .signature-nav__logo--centered {
+    width: clamp(100px, 29vw, 132px);
+  }
+  .signature-nav__menu--centered {
+    width: 42px;
+    height: 42px;
+  }
+}
+@media (max-width: 370px) {
+  .signature-nav__logo--centered {
+    width: 98px;
+  }
+  .signature-nav__menu--centered {
+    width: 36px;
+    height: 36px;
+  }
 }

@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -84,25 +84,6 @@ export default function SignatureNavbarV2({
             priority
           />
         </Link>
-        <nav className="signature-nav__links">
-          {links.slice(0, 4).map(([label, href]) => (
-            <Link
-              href={href}
-              key={href}
-              className={activeHref === href ? "is-active" : undefined}
-              aria-current={activeHref === href ? "location" : undefined}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-        <Link
-          href="/contact"
-          className={`signature-nav__cta${activeHref === "/contact" ? " is-active" : ""}`}
-          aria-current={activeHref === "/contact" ? "page" : undefined}
-        >
-          Start a conversation <ArrowUpRight size={15} />
-        </Link>
         <button
           className="signature-nav__menu"
           onClick={() => setOpen(true)}
@@ -134,65 +115,69 @@ export default function SignatureNavbarV2({
               priority
             />
             <div className="signature-menu__wash" />
-            <div className="signature-menu__top">
-              <Link
-                href="/"
-                onClick={() => setOpen(false)}
-                aria-label="Signature Developers home"
-              >
-                <Image
-                  src="/signature-logo.png"
-                  alt="Signature Developers"
-                  width={150}
-                  height={74}
-                />
-              </Link>
-              <button
-                className="signature-menu__close"
-                onClick={() => setOpen(false)}
-                aria-label="Close menu"
-              >
-                <span>Close</span>
-                <X size={22} />
-              </button>
-            </div>
-            <div className="signature-menu__body">
-              <p className="eyebrow">Explore Signature</p>
-              <nav>
-                {links.map(([label, href], index) => (
-                  <motion.div
-                    key={href}
-                    initial={{ opacity: 0, x: -18 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.07, duration: 0.35 }}
-                  >
-                    <Link
-                      href={href}
-                      onClick={() => setOpen(false)}
-                      className={activeHref === href ? "is-active" : undefined}
-                      aria-current={
-                        activeHref === href ? "location" : undefined
-                      }
-                    >
-                      <span>0{index + 1}</span>
-                      {label}
-                      <ArrowUpRight size={17} />
-                    </Link>
-                  </motion.div>
-                ))}
-              </nav>
-              <div className="signature-menu__bottom">
-                <span>Building better tomorrow</span>
-                <a
-                  className="signature-menu__whatsapp"
-                  href="https://wa.me/918436969369"
-                  target="_blank"
-                  rel="noreferrer"
+            <div className="signature-menu__panel">
+              <div className="signature-menu__panel-image" aria-hidden="true" />
+              <div className="signature-menu__top">
+                <Link
+                  href="/"
+                  onClick={() => setOpen(false)}
+                  aria-label="Signature Developers home"
                 >
-                  <FaWhatsapp size={17} /> WhatsApp us
-                </a>
+                  <Image
+                    src="/signature-logo.png"
+                    alt="Signature Developers"
+                    width={150}
+                    height={74}
+                  />
+                </Link>
+              </div>
+              <div className="signature-menu__body">
+                <p className="eyebrow">Explore Signature</p>
+                <nav>
+                  {links.map(([label, href], index) => (
+                    <motion.div
+                      key={href}
+                      initial={{ opacity: 0, x: -18 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.07, duration: 0.35 }}
+                    >
+                      <Link
+                        href={href}
+                        onClick={() => setOpen(false)}
+                        className={activeHref === href ? "is-active" : undefined}
+                        aria-current={
+                          activeHref === href ? "location" : undefined
+                        }
+                      >
+                        <span>0{index + 1}</span>
+                        {label}
+                        <ArrowRight size={17} />
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+                <div className="signature-menu__bottom">
+                  <span>Building better tomorrow</span>
+                  <a
+                    className="signature-menu__whatsapp"
+                    href="https://wa.me/918436969369"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FaWhatsapp size={20} style={{ color: "#25D366" }} />
+                    WhatsApp us
+                  </a>
+                </div>
               </div>
             </div>
+            <button
+              className="signature-menu__close"
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+            >
+              <span>Close</span>
+              <X size={22} />
+            </button>
             <span className="signature-menu__caption">
               Thoughtful spaces. Lasting value.
             </span>

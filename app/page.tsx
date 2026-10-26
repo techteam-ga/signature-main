@@ -2,7 +2,7 @@
 
 import SignatureFooter from "@/components/SignatureFooter";
 import SignatureHero from "@/components/SignatureHero";
-import SignatureNavbar from "@/components/SignatureNavbarV2";
+import SignatureNavbar from "@/components/SignatureNavbarCenter";
 import ScrollToTop from "@/components/ScrollToTop";
 import React from "react";
 import SignatureHomepage from "@/components/SignatureHomepage";

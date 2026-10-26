@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Navbar from "@/components/SignatureNavbarV2";
+import Navbar from "@/components/SignatureNavbarCenter";
 import Footer from "@/components/SignatureFooter";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ChevronDown } from "lucide-react";
