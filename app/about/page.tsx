@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Compass, Layers3, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/SignatureNavbarCenter";
 import Footer from "@/components/SignatureFooter";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -22,7 +22,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="bg-[#0A0A0A] text-white font-poppins">
+    <main className="about-page bg-[#0A0A0A] text-white font-poppins">
       <Navbar />
 
       {/* 🌆 HERO SECTION */}
@@ -70,7 +70,7 @@ export default function AboutPage() {
       </section>
 
       {/* 🆕 NEW CONTENT SECTION (PREMIUM LAYOUT) */}
-      <section className="about-story mt-7 mb-8 px-0">
+      <section className="about-story px-0">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2">
           {/* LEFT IMAGE */}
           <motion.div
@@ -134,8 +134,78 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="about-principles" aria-labelledby="about-principles-title">
+        <div className="about-principles__inner">
+          <div className="about-principles__heading">
+            <p className="eyebrow">The way we work</p>
+            <h2 id="about-principles-title" className="font-playfair">
+              Thoughtful work.<br />
+              <em>Lasting places.</em>
+            </h2>
+            <p className="about-principles__intro">
+              Every project starts with listening. We bring design, planning and
+              delivery together to make places that work beautifully for the
+              people who use them.
+            </p>
+          </div>
+
+          <div className="about-principles__grid">
+            <motion.article
+              className="about-principle"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55 }}
+            >
+              <span className="about-principle__number">01</span>
+              <Compass aria-hidden="true" className="about-principle__icon" />
+              <h3 className="font-playfair">Designed around people</h3>
+              <p>
+                We shape each space around its purpose, its setting and the
+                people who will make it their own.
+              </p>
+              <ArrowUpRight aria-hidden="true" className="about-principle__arrow" />
+            </motion.article>
+
+            <motion.article
+              className="about-principle"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: 0.1 }}
+            >
+              <span className="about-principle__number">02</span>
+              <Layers3 aria-hidden="true" className="about-principle__icon" />
+              <h3 className="font-playfair">One connected team</h3>
+              <p>
+                Architects, engineers and project teams work closely together
+                from the first idea through delivery.
+              </p>
+              <ArrowUpRight aria-hidden="true" className="about-principle__arrow" />
+            </motion.article>
+
+            <motion.article
+              className="about-principle"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: 0.2 }}
+            >
+              <span className="about-principle__number">03</span>
+              <ShieldCheck aria-hidden="true" className="about-principle__icon" />
+              <h3 className="font-playfair">Crafted to endure</h3>
+              <p>
+                Careful materials, considered details and dependable execution
+                help our work stand the test of time.
+              </p>
+              <ArrowUpRight aria-hidden="true" className="about-principle__arrow" />
+            </motion.article>
+          </div>
+        </div>
+      </section>
+
       {/* 📊 METRICS - HOVER INTERACTION */}
-      <section className="about-metrics mt-5 mb-10">
+      <section className="about-metrics">
         <div className="about-metrics__grid max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8">
           {metrics.map((metric, i) => (
             <motion.div

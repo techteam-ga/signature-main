@@ -33,7 +33,7 @@ export default function ScrollToTop() {
           }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="scroll-to-top-button fixed bottom-8 right-8 z-50"
+          className="scroll-to-top-button fixed bottom-8 left-8 z-50"
           aria-label="Scroll to top"
         >
           <FaArrowUp className="w-5 h-5" />

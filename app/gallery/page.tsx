@@ -44,7 +44,7 @@ export default function GalleryPage() {
   };
 
   return (
-    <main className="bg-[#0A0A0A] text-white font-poppins overflow-hidden">
+    <main className="gallery-page bg-[#0A0A0A] text-white font-poppins overflow-hidden">
       <Navbar />
 
       {/* HERO */}

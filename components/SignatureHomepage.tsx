@@ -7,27 +7,24 @@ import { ArrowUpRight, ChevronRight, MapPin } from "lucide-react";
 
 const projects = [
   {
-    title: "Signature Greens",
-    location: "New Town, Kolkata",
-    type: "Residential community",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+    title: "Sport Assembly Club — Ranigunj, West Bengal",
+    location: "Ranigunj, West Bengal",
+    type: "Sports club",
+    image: "/images/Projects/project1.jpg",
     number: "01",
   },
   {
-    title: "The Grand Signature",
-    location: "Salt Lake, Kolkata",
-    type: "Premium residences",
-    image:
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85",
+    title: "SharePunjab — Kolkata, West Bengal",
+    location: "Kolkata, West Bengal",
+    type: "Restaurant",
+    image: "/images/Projects/project2.jpg",
     number: "02",
   },
   {
-    title: "Signature Business Park",
-    location: "Howrah, West Bengal",
-    type: "Commercial destination",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=85",
+    title: "Dr. SK Isser Residential Triplex Project — SHC, Bihar",
+    location: "SHC, Bihar",
+    type: "Residential project",
+    image: "/images/Projects/project4.jpg",
     number: "03",
   },
 ];

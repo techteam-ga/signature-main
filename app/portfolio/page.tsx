@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { ChevronDown, Download } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { OPEN_CONTACT_ENQUIRY_EVENT } from "@/components/ContactEnquiryModal";
 
 import Footer from "@/components/SignatureFooter";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -11,63 +13,68 @@ import Navbar from "@/components/SignatureNavbarCenter";
 type Project = {
   id: string;
   title: string;
-  location: string;
-  desc: string;
   image: string;
+  description: string;
 };
 
 const projects: Project[] = [
   {
     id: "project-1",
-    title: "The Signature Residence",
-    location: "Kolkata, India",
-    desc: "A refined residential concept balancing natural light, warm materials, and contemporary proportions.",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85",
+    title: "Sport Assembly Club — Ranigunj, West Bengal",
+    image: "/images/Projects/project1.jpg",
+    description: "A contemporary club destination in Ranigunj, bringing sport and community life together through purposeful spaces and a welcoming architectural presence.",
   },
   {
     id: "project-2",
-    title: "Urban House",
-    location: "Kolkata, India",
-    desc: "A modern home shaped around privacy, calm transitions, and an enduring material palette.",
-    image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85",
+    title: "SharePunjab — Kolkata, West Bengal",
+    image: "/images/Projects/project2.jpg",
+    description: "A distinctive hospitality project in Kolkata, shaped to create a warm, memorable setting for dining, gathering, and spending time together.",
   },
   {
     id: "project-3",
-    title: "The Courtyard Villa",
-    location: "West Bengal, India",
-    desc: "A connected indoor-outdoor residence designed around a central landscaped court.",
-    image:
-      "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=85",
+    title: "Featured Project",
+    image: "/images/Projects/project3.tif",
+    description: "A featured Signature development that reflects our focus on thoughtful planning, considered details, and quality in execution.",
   },
   {
     id: "project-4",
-    title: "Signature Workplace",
-    location: "Kolkata, India",
-    desc: "A considered workplace environment where clarity, comfort, and crafted details work together.",
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85",
+    title: "Dr. SK Isser Residential Triplex Project — SHC, Bihar",
+    image: "/images/Projects/project4.jpg",
+    description: "A multi-level private residence in Bihar, planned to support comfortable family living with a distinctive architectural character.",
   },
   {
     id: "project-5",
-    title: "The Garden House",
-    location: "India",
-    desc: "A quiet architectural retreat with generous openings and a close relationship to its garden.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
+    title: "Hotel Holiday INN — SHC, Bihar",
+    image: "/images/Projects/project5.jpg",
+    description: "A hospitality development in Bihar, designed around comfortable guest spaces and the practical needs of a welcoming hotel.",
   },
   {
     id: "project-6",
-    title: "Contemporary Living",
-    location: "India",
-    desc: "A contemporary development defined by clean lines, elegant finishes, and thoughtful planning.",
-    image:
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85",
+    title: "Hotel New Park Inn. — Kharagpur, West Bengal",
+    image: "/images/Projects/project6.jpg",
+    description: "A hotel project in Kharagpur that pairs functional guest accommodation with a polished, contemporary presence.",
   },
 ];
 
 export default function PortfolioPage() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedProject(null);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [selectedProject]);
+
   const scrollToNextSection = () => {
     const nextSection = document.getElementById("intro-section");
     if (nextSection) {
@@ -76,7 +83,7 @@ export default function PortfolioPage() {
   };
 
   return (
-    <main className="bg-[#0A0A0A] text-white font-poppins">
+    <main className="portfolio-page bg-[#0A0A0A] text-white font-poppins">
       <Navbar />
 
       {/* HERO SECTION */}
@@ -149,7 +156,7 @@ export default function PortfolioPage() {
           enhance the value of their real estate investments.
         </motion.p>
 
-        <motion.a
+        {/* <motion.a
           href="/files/Signature-Group-Profile.pdf"
           target="_blank"
           rel="noopener noreferrer"
@@ -162,12 +169,12 @@ export default function PortfolioPage() {
         >
           <Download className="w-5 h-5" />
           Download Company Profile
-        </motion.a>
+        </motion.a> */}
       </section>
 
       {/* PROJECTS SECTION */}
 
-      <section className="mb-20 mt-5 px-6 lg:px-20 max-w-6xl mx-auto cursor-pointer">
+      <section className="mb-20 mt-5 px-6 lg:px-20 max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -186,31 +193,105 @@ export default function PortfolioPage() {
               transition={{ duration: 1 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="w-full overflow-hidden rounded-2xl border border-[#1f1f1f] hover:border-[#E0B973] transition-all duration-500">
+              <button
+                type="button"
+                onClick={() => setSelectedProject(project)}
+                aria-label={`View details for ${project.title}`}
+                className="group relative block w-full overflow-hidden rounded-2xl border border-[#1f1f1f] text-left transition-all duration-500 hover:border-[#E0B973] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E0B973]"
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={1000}
                   height={600}
-                  className="object-cover w-full h-[450px]"
+                  className="h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03] sm:h-[380px] lg:h-[450px]"
                 />
-              </div>
+                <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pb-5 pt-16 text-left text-xs font-medium uppercase tracking-[0.18em] text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                  View project details
+                </span>
+              </button>
 
-              <div className="mt-8 max-w-3xl">
+              <div className="mt-6 max-w-3xl px-3">
                 <h3 className="font-playfair text-2xl text-[#E0B973] font-semibold mb-2 uppercase">
                   {project.title}
                 </h3>
-
-                <p className="text-gray-500 italic mb-3">{project.location}</p>
-
-                <p className="text-gray-300 leading-relaxed text-base text-justify">
-                  {project.desc}
+                <p className="mt-3 text-sm leading-relaxed text-[#687386] sm:text-base">
+                  {project.description}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className="fixed inset-0 z-110 flex items-center justify-center overflow-y-auto bg-[#101827]/75 p-4 backdrop-blur-sm sm:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setSelectedProject(null);
+            }}
+          >
+            <motion.section
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="portfolio-detail-title"
+              className="relative my-auto grid w-full max-w-5xl overflow-hidden rounded-xl border border-[#d8c89f] bg-[#fffefa] shadow-2xl md:grid-cols-[1.2fr_0.8fr]"
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="relative min-h-[260px] bg-[#e9e5db] sm:min-h-[420px]">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 60vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="relative flex flex-col justify-center px-6 py-8 sm:px-10 sm:py-12">
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(null)}
+                  aria-label="Close project details"
+                  className="absolute right-3 top-3 rounded-full p-2 text-[#343c49] transition hover:bg-[#f0ece3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a77b2b] sm:right-5 sm:top-5"
+                >
+                  <X size={22} />
+                </button>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a77b2b]">
+                  Featured development
+                </p>
+                <h2
+                  id="portfolio-detail-title"
+                  className="font-playfair text-2xl font-semibold leading-tight text-[#10284a] sm:text-3xl"
+                >
+                  {selectedProject.title}
+                </h2>
+                <div className="my-5 h-px w-20 bg-[#c99b45]" />
+                <p className="text-sm leading-7 text-[#626d7e] sm:text-base">
+                  {selectedProject.description}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedProject(null);
+                    window.dispatchEvent(new Event(OPEN_CONTACT_ENQUIRY_EVENT));
+                  }}
+                  className="mt-8 w-fit border border-[#c99b45] px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#10284a] transition hover:bg-[#c99b45]"
+                >
+                  Contact us
+                </button>
+              </div>
+            </motion.section>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
       <ScrollToTop />

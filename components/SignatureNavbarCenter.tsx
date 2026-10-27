@@ -6,6 +6,9 @@ import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import ContactEnquiryModal, {
+  OPEN_CONTACT_ENQUIRY_EVENT,
+} from "@/components/ContactEnquiryModal";
 
 const links = [
   ["Home", "/"],
@@ -21,6 +24,7 @@ export default function SignatureNavbarCenter({
   onMenuToggle?: (open: boolean) => void;
 }) {
   const [open, setOpen] = useState(false);
+  const [enquiryOpen, setEnquiryOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSectionHref, setActiveSectionHref] = useState<string | null>(
     null,
@@ -34,6 +38,11 @@ export default function SignatureNavbarCenter({
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => {
+    const openEnquiry = () => setEnquiryOpen(true);
+    window.addEventListener(OPEN_CONTACT_ENQUIRY_EVENT, openEnquiry);
+    return () => window.removeEventListener(OPEN_CONTACT_ENQUIRY_EVENT, openEnquiry);
   }, []);
   useEffect(() => {
     if (pathname !== "/") return;
@@ -66,12 +75,12 @@ export default function SignatureNavbarCenter({
     };
   }, [pathname]);
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = open || enquiryOpen ? "hidden" : "";
     onMenuToggle(open);
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open, onMenuToggle]);
+  }, [open, enquiryOpen, onMenuToggle]);
   return (
     <>
       <header
@@ -93,13 +102,18 @@ export default function SignatureNavbarCenter({
             priority
           />
         </Link>
-        <Link
-          href="/contact"
+        <button
+          type="button"
+          onClick={() => setEnquiryOpen(true)}
           className="signature-nav__cta signature-nav__cta--centered"
         >
           Start a conversation <ArrowUpRight size={15} />
-        </Link>
+        </button>
       </header>
+      <ContactEnquiryModal
+        isOpen={enquiryOpen}
+        onClose={() => setEnquiryOpen(false)}
+      />
       <AnimatePresence>
         {open && (
           <motion.aside
@@ -118,7 +132,7 @@ export default function SignatureNavbarCenter({
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=85"
               alt=""
               fill
-              sizes="(max-width: 700px) 53vw, 100vw"
+              sizes="100vw"
               priority
             />
             <div className="signature-menu__wash" />

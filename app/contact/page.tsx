@@ -72,7 +72,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="bg-[#0A0A0A] text-white font-poppins">
+    <main className="contact-page bg-[#0A0A0A] text-white font-poppins">
       <Navbar />
 
       {/* 🌆 HERO SECTION */}
