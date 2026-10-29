@@ -24,7 +24,7 @@ export const OPEN_CONTACT_ENQUIRY_EVENT = "signature:open-contact-enquiry";
 type FormStatus = "idle" | "sending" | "success" | "error";
 
 const inputClassName =
-  "min-w-0 flex-1 bg-transparent py-2 text-sm text-[#252525] outline-none placeholder:text-[#777]";
+  "min-w-0 flex-1 bg-transparent py-1.5 text-sm text-[#252525] outline-none placeholder:text-[#777]";
 
 export default function ContactEnquiryModal({
   isOpen,
@@ -87,7 +87,13 @@ export default function ContactEnquiryModal({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-100 flex items-center justify-center overflow-y-auto bg-black/65 p-5 backdrop-blur-sm sm:p-6"
+          className="fixed inset-0 z-100 flex items-center justify-center overflow-y-auto bg-black/65 backdrop-blur-sm"
+          style={{
+            paddingTop: "max(0.75rem, env(safe-area-inset-top))",
+            paddingRight: "max(0.75rem, env(safe-area-inset-right))",
+            paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+            paddingLeft: "max(0.75rem, env(safe-area-inset-left))",
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -99,13 +105,13 @@ export default function ContactEnquiryModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby="enquiry-title"
-            className="relative isolate my-auto max-h-[calc(100dvh-2.5rem)] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#d7bd85] bg-transparent p-0 text-[#24242a] shadow-2xl"
+            className="relative isolate my-auto max-h-[82dvh] w-[min(86vw,22rem)] overflow-y-auto overscroll-contain rounded-2xl border border-[#d7bd85] bg-transparent p-0 text-[#24242a] shadow-2xl sm:max-h-[calc(100dvh-1.5rem)] sm:w-full sm:max-w-md"
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="relative isolate px-3 py-3 sm:px-7 sm:py-5">
+            <div className="relative isolate px-2.5 py-2.5 sm:px-6 sm:py-4">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 z-0 bg-[url('/images/enquiry-modal-bg.png')] bg-cover bg-center opacity-70"
@@ -124,35 +130,35 @@ export default function ContactEnquiryModal({
                 <X size={20} />
               </button>
 
-              <div className="mb-3 flex justify-center">
+              <div className="mb-2 flex justify-center">
                 <Image
                   src="/signature-logo.png"
                   alt="Signature Developers"
                   width={170}
                   height={84}
-                  className="h-9 w-auto object-contain sm:h-10"
+                  className="h-7 w-auto object-contain sm:h-10"
                   priority
                 />
               </div>
               <h2
                 id="enquiry-title"
-                className="font-playfair text-center text-xl font-semibold sm:text-3xl"
+                className="font-playfair text-center text-lg font-semibold sm:text-2xl"
               >
                 Connect with Us
               </h2>
-              <div className="mx-auto my-2 flex w-36 items-center gap-2 text-[#b18536]">
+              <div className="mx-auto my-1.5 flex w-32 items-center gap-2 text-[#b18536]">
                 <span className="h-px flex-1 bg-[#b18536]" />
                 <span aria-hidden="true" className="text-sm">
                   ◆
                 </span>
                 <span className="h-px flex-1 bg-[#b18536]" />
               </div>
-              <p className="mx-auto mb-3 max-w-md text-center text-xs leading-snug text-[#444653] sm:mb-4 sm:text-sm">
+              <p className="mx-auto mb-2 hidden max-w-md text-center text-xs leading-snug text-[#444653] sm:mb-3 sm:block sm:text-sm">
                 Please share your details and our team will get in touch with
                 you within 24 hours.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-2">
+              <form onSubmit={handleSubmit} className="space-y-1 sm:space-y-1.5">
                 <input
                   type="checkbox"
                   name="botcheck"
@@ -181,13 +187,13 @@ export default function ContactEnquiryModal({
                     required
                   />
                 </div>
-                <div className="flex items-center rounded-lg border border-[#c8c8cd] bg-white/75 px-3 focus-within:border-[#ad812e]">
+                <div className="flex min-w-0 items-center rounded-lg border border-[#c8c8cd] bg-white/75 px-2.5 focus-within:border-[#ad812e] sm:px-3">
                   <Phone size={20} className="shrink-0 text-[#a77b2b]" />
                   <select
                     name="country_code"
                     aria-label="Country calling code"
                     defaultValue="+91 (India)"
-                    className="w-[112px] shrink-0 bg-transparent py-2 pl-2 text-xs text-[#252525] outline-none sm:w-[140px] sm:text-sm"
+                    className="w-[clamp(5.5rem,30vw,8rem)] shrink-0 bg-transparent py-1.5 pl-1.5 text-[11px] text-[#252525] outline-none sm:w-32 sm:pl-2 sm:text-sm"
                   >
                     <option value="+91 (India)">India (+91)</option>
                     <option value="+1 (United States)">
@@ -201,16 +207,18 @@ export default function ContactEnquiryModal({
                   </select>
                   <span
                     aria-hidden="true"
-                    className="mx-2 h-6 w-px shrink-0 bg-[#d5d0c4]"
+                    className="mx-1.5 h-6 w-px shrink-0 bg-[#d5d0c4] sm:mx-2"
                   />
                   <input
-                    className={inputClassName}
                     name="phone"
                     type="tel"
-                    placeholder="Contact number (10 digits)*"
+                    aria-label="Contact number (10 digits)"
+                    inputMode="numeric"
+                    placeholder="Contact number*"
                     autoComplete="tel-national"
                     minLength={7}
                     maxLength={15}
+                    className={`${inputClassName} text-xs sm:text-sm`}
                     required
                   />
                 </div>
@@ -229,9 +237,9 @@ export default function ContactEnquiryModal({
                   name="message"
                   rows={2}
                   placeholder="Your message (optional)"
-                  className="w-full resize-y rounded-lg border border-[#c8c8cd] bg-white/70 px-3 py-1.5 text-sm text-[#252525] outline-none placeholder:text-[#777] focus:border-[#ad812e]"
+                  className="w-full resize-y rounded-lg border border-[#c8c8cd] bg-white/70 px-3 py-1 text-xs text-[#252525] outline-none placeholder:text-[#777] focus:border-[#ad812e] sm:py-1.5 sm:text-sm"
                 />
-                <label className="flex cursor-pointer items-start gap-3 text-xs leading-relaxed text-[#444653] sm:text-sm">
+                <label className="flex cursor-pointer items-start gap-2 text-[11px] leading-snug text-[#444653] sm:gap-3 sm:text-sm sm:leading-relaxed">
                   <input
                     type="checkbox"
                     name="consent"
@@ -253,7 +261,7 @@ export default function ContactEnquiryModal({
                     background:
                       "linear-gradient(105deg, #9b6e1f 0%, #cda44c 100%)",
                   }}
-                  className="flex w-full items-center justify-center gap-3 rounded-lg px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:brightness-105 disabled:cursor-wait disabled:opacity-70"
+                  className="flex w-full items-center justify-center gap-3 rounded-lg px-5 py-2 text-xs font-medium text-white shadow-sm transition hover:brightness-105 disabled:cursor-wait disabled:opacity-70 sm:py-2.5 sm:text-sm"
                 >
                   {status === "sending" ? "Sending…" : "Submit Enquiry"}
                   {status !== "sending" && <ArrowRight size={19} />}
@@ -273,7 +281,7 @@ export default function ContactEnquiryModal({
                 </p>
               </form>
 
-              <div className="mt-2 grid grid-cols-3 divide-x divide-[#d5d0c4] border-t border-[#d5d0c4] pt-2 sm:mt-3 sm:pt-3">
+              <div className="mt-1.5 hidden grid-cols-3 divide-x divide-[#d5d0c4] border-t border-[#d5d0c4] pt-2 sm:mt-2 sm:grid sm:pt-2.5">
                 <div className="flex items-center justify-center gap-1.5 px-1 text-[#a77b2b] sm:gap-2">
                   <Headset
                     className="size-5 shrink-0 sm:size-6"
